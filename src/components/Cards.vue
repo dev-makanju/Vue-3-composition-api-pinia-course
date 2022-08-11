@@ -9,18 +9,19 @@
       <div class="content">
            {{note.note}}
          <div class="ha-text-right has-text-grey-light mt-2">
-            <small>{{ characterCount(note.note) }} Character(s)</small>
+           <small>{{ characterCount(note.note) }} Character(s)</small>
          </div>
       </div>
    </div>
    <footer class="card-footer">
-      <a 
+      <RouterLink 
+         :to="{ name:'editName' , params:{ id: note.id } }" 
          @click.prevent="storeNote.editNote(note.id)"
          href="#" 
          class="card-footer-item"
       >
          Edit
-      </a>
+      </RouterLink>
       <a
          @click.prevent="storeNote.deleteNote(note.id)"
          href="#" 

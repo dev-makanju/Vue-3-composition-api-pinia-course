@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <Navbar />  
+  <div>  
     <Wrapper>
         <Form />
         <Cards 
@@ -15,7 +14,6 @@
   */ 
   import {ref} from 'vue'
   import {useStoreNotes} from '../stores/notes'
-  import Navbar from '../components/Layouts/NavBar.vue'
   import Wrapper from '../components/Layouts/Wrapper.vue'
   import Cards from '../components/Cards.vue'
   import Form from '../components/Form.vue'

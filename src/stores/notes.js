@@ -26,13 +26,19 @@ export const useStoreNotes = defineStore( 'stoteNotes', {
       this.notes.unshift(note)
     },
     deleteNote(id){
-      console.log(id , this.notes)
       this.notes = this.notes.filter( (newKey) => { 
         return newKey.id !== id
       })
     },
     editNote(id){
-       console.log(id)
+      // 
+    }
+  },
+  getters: {
+    getSingleNoteById: (state) => {
+      return (id) => {
+        return state.notes.filter( note => { return note.id === id })[0].note
+      }
     }
   }
 })

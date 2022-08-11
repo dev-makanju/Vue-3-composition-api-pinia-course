@@ -36,11 +36,6 @@
    import DarkWrapper from "../components/Layouts/DarkWrapper.vue"
    import { useStoreNotes } from '../stores/notes'
 
-   /*
-     emit
-   */ 
-   const emit = defineEmits(['add-note'])
-
 
    /*
      data
