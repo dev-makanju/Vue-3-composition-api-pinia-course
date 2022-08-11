@@ -16,8 +16,6 @@
    <footer class="card-footer">
       <RouterLink 
          :to="{ name:'editName' , params:{ id: note.id } }" 
-         @click.prevent="storeNote.editNote(note.id)"
-         href="#" 
          class="card-footer-item"
       >
          Edit

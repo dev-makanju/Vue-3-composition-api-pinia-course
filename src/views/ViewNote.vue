@@ -11,7 +11,7 @@
                   Cancel
             </RouterLink>
             <button 
-               @click="addNote"
+               @click="updateNote"
                :disabled="!newNote"
                class="button is-primary has-backgroung-success">
                   Edit Notes
@@ -25,7 +25,7 @@
 imports
 */
    import { ref } from 'vue'
-   import { useRoute } from 'vue-router'
+   import { useRoute , useRouter } from 'vue-router'
    import AddEditNote from '@/components/Notes/AddEditNote.vue' 
    import DarkWrapper from "../components/Layouts/DarkWrapper.vue"
    import { useStoreNotes } from '../stores/notes.js'
@@ -35,7 +35,7 @@ imports
    */  
 
    const route = useRoute();
-
+   const router = useRouter()
 
    const newNote = ref('')
    const addNewNote = ref(null)
@@ -51,6 +51,12 @@ imports
    /*
      methods
    */
+   
+   const updateNote = () => {
+      storeNote.updateNote(route.params.id , newNote.value)
+      router.push('/')
+   }
+
    const addNote = () => {
       storeNote.addNote(newNote.value);
       newNote.value = ''

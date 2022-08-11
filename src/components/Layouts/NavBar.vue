@@ -29,20 +29,22 @@
          :class="{'is-active':showMobile}"
       >
          <div class="navbar-end">
-            <RouteLink 
+            <RouterLink 
                to="/"
                class="navbar-item"
                active-class="is-active"
+               @click="showMobile = false"
             >
                Notes
-            </RouteLink>
-            <RouteLink 
+            </RouterLink>
+            <RouterLink 
                to="/stat"
                class="navbar-item"
                active-class="is-active"
+               @click="showMobile = false"
             >
                Stat
-            </RouteLink>
+            </RouterLink>
          </div>
       </div>
    </div>
