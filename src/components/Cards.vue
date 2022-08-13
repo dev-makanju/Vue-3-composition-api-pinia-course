@@ -21,7 +21,7 @@
          Edit
       </RouterLink>
       <a
-         @click.prevent="storeNote.deleteNote(note.id)"
+         @click.prevent="deleteSingleNote(note.id)"
          href="#" 
          class="card-footer-item"
       >
@@ -46,8 +46,14 @@
       notes:{
         type: Array,
         required: true,
+      },
+      modelValue: {
+         type: Boolean,
       } 
    })
+
+   const emit = defineEmits()
+
 
    /*
      store
@@ -57,8 +63,14 @@
    /*
     computed property
    */ 
+
    const characterLenght = computed(() => {
       //return props
-   })   
+   })  
+   
+   const deleteSingleNote = (id) => {
+      emit('delete-note' , id )
+      emit('update:modelValue' , true)
+   }
    
 </script>

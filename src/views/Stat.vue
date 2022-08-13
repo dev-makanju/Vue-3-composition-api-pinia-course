@@ -19,6 +19,14 @@
             </tr>
          </tbody>
       </table>
+      <input 
+         class="input"
+         type="text"
+         v-model="loveBoteBalls"
+         placeholder="do you love noteballs"
+         maxlength="100"
+         v-autofocus
+      >
    </Wrapper>
   </div>
 </template>
@@ -27,14 +35,22 @@
 /**
  * imports
  * */ 
+import { ref } from 'vue'
 import Wrapper from '../components/Layouts/Wrapper.vue'
-import {useStoreNotes} from '../stores/notes'
+import { useStoreNotes } from '../stores/notes'
+import { vAutofocus } from '../directives/vAutofocus'
+import { useWatchCharacter } from '../use/useWatchCharacter'
 
+
+const loveBoteBalls = ref('')
 
 /**
- * store
- * */ 
+* store
+* */
+
+
 const noteStore = useStoreNotes()
 
+useWatchCharacter(loveBoteBalls)
 
 </script>

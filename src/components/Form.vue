@@ -9,6 +9,8 @@
             ref="addNewNote"
             class="textarea" 
             placeholder="Add a new note..."
+            max-length="100"
+            v-autofocus
          />
       </div>
     </div>
@@ -30,30 +32,38 @@
 
 <script setup>
    /*
-   imports
-   */ 
-   import {ref} from 'vue'
-   import DarkWrapper from "../components/Layouts/DarkWrapper.vue"
-   import { useStoreNotes } from '../stores/notes'
+    imports
+    */ 
+    import {onMounted, ref} from 'vue'
+    import DarkWrapper from "../components/Layouts/DarkWrapper.vue"
+    import { useStoreNotes } from '../stores/notes'
+    import { vAutofocus } from '../directives/vAutofocus'
+    import { useWatchCharacter } from '../use/useWatchCharacter'
 
-
-   /*
+    /*
      data
-   */  
-   const newNote = ref('')
-   const addNewNote = ref(null)
+    */  
+    const newNote = ref('')
+    const addNewNote = ref(null)
 
-   /*
+    /*
      store
-   */ 
-   const storeNote = useStoreNotes();
+    */ 
+    const storeNote = useStoreNotes();
 
-   /*
+    /*
      methods
-   */ 
-   const addNote = () => {
+    */
+
+    const addNote = () => {
       storeNote.addNote(newNote.value);
       newNote.value = ''
       addNewNote.value.focus()
-   }
+    } 
+
+    /**
+     * composables
+     * */ 
+    useWatchCharacter(newNote)
+
 </script>
